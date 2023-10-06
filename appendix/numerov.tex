@@ -1,0 +1,41 @@
+\chapter{The renormalized Numerov method}
+\label{app:numerov}
+
+This appendix is based on a more in-depth explanation in Ref. \cite{doerkAtomion2008}. We reintroduce $\hbar \neq 1$ for clarity. The Numerov method integrates one-dimensional second order differential equations with no first order derivative. Assume that such an equation is of the form
+\begin{align}
+\left[ \pdd{}{x} + Q(x) \right] \psi(x) = 0,
+\end{align}
+which is the Schr\"odinger equation when
+\begin{align}
+Q(x) = \frac{2m}{\hbar} (E - V(x)).
+\end{align}
+We discretize space into $N$ small intervals of length $a$ starting at a point $x_0$, continuing in points $x_n = x_0 + n a$ with $n \in \mathbb{N}$ and ending at a point $x_N$. The discretized wave function is then $\psi_n = \psi(x_n)$, and $Q_n = Q(x_n)$. The Numerov formula, which is derived through a Taylor expansion in $a$, says that
+\begin{align}
+\Big(1 + \frac{a^2}{12} Q_{n+1}\Big) \psi_{n+1} 
++ \Big(1 + \frac{a^2}{12} Q_{n-1}\Big) \psi_{n-1} 
+-\Big(2 - \frac{5 a^2}{6} Q_{n}\Big) \psi_{n} + \mathcal{O}(a^6) = 0
+\end{align}
+where $Q_n$ is known for all $n$. For increased numerical stability we introduce the ratio 
+\begin{align}
+R_n = \frac{\psi_{n+1}}{\psi_n} 
+\end{align}
+which is usually on order one. If we ignore terms of order $a^6$ and higher, we find
+\begin{align}
+R_n = \Big(1 + \frac{a^2}{12} Q_{n+1}\Big)^{-1} \Big[ \Big(2 - \frac{5 a^2}{6} Q_{n}\Big) - \Big(1 + \frac{a^2}{12} Q_{n-1}\Big) R^{-1}_{n-1} \Big].
+\end{align}
+Given $R_0 = \psi_1/\psi_0$, we can use this formula to iteratively construct the wave function forwards from $x_0$. We can also construct the wave function backwards from $x_N$ by defining 
+\begin{align}
+\tilde R_n = \frac{\psi_{n-1}}{\psi_n}
+\end{align}
+and use the formula
+\begin{align}
+\tilde R_n = \Big(1 + \frac{a^2}{12} Q_{n-1}\Big)^{-1} \Big[ \Big(2 - \frac{5 a^2}{6} Q_{n}\Big) - \Big(1 + \frac{a^2}{12} Q_{n+1}\Big) R^{-1}_{n+1} \Big].
+\end{align}
+The numerically optimal strategy is to choose a point $x_c$ between $x_0$ and $x_N$. The wave function is then iterated from left and right up to $x_c$. At this point, the matching function
+\begin{align}
+G(E) = \left( \frac{\psi(x_N+a)}{\psi(x_N)} \right)_\text{right} - \left( \frac{\psi(x_N+a)}{\psi(x_N)} \right)_\text{left}
+\end{align}
+is evaluated. $G$ is zero if and only if $E$ is an eigenvalue of the Hamiltonian $\hat H$ corresponding to $Q(x,E)$. While the choice of $x_c$ is arbitrary, it can be advantageous to use the first extremum of the wave function as evaluated from $x_N$ when the more complex behaviour occurs in $x_0$.
+
+The task is then to choose $x_0$ and $x_N$ as points with well known wave function behaviour (and thus $R_0, \tilde R_N$). Then a root of $G(E)$ can be found through optimization in $E$, with the resulting energy being an eigenvalue of the Hamiltonian. The wave function can then be reconstructed from the boundary conditions and the ratios $R$ and $\tilde R$.
+

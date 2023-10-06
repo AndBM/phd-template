@@ -1,0 +1,56 @@
+\input{preambleA4}
+\input{macros}
+
+
+%% Defines thesistitle, author name, supervisor, and all other personal stuff
+\newcommand{\thesistitle}{Induced superconductivity in a quantum Hall edge state}
+\renewcommand{\author}{Andreas Bock Michelsen}
+% Replace with a nice picture related to the thesis
+\newcommand{\coverPicPath}{figures/coverFig}
+
+\begin{document}
+	%% Coverpage, titlepage, colophon
+	\frontmatter
+		\input{frontmatter/coverPage}
+		\includepdf{frontmatter/titlePageStA2}
+		\addcontentsline{toc}{chapter}{Thesis declarations}
+		\includepdf[pages=-]{frontmatter/declarations3}
+		\restoregeometry	
+	
+	%% Outline, table of contents, acknowledgements and preface
+		\pagestyle{fancy}
+		\fancyhead[L,C,R]{}
+		\renewcommand{\headrulewidth}{0pt}
+		
+		\input{frontmatter/abstract} 
+		\input{frontmatter/acknowledgements} 
+		\newpage
+		\thispagestyle{empty} % This page is intentionally left blank
+		\phantom{blabla}
+		\clearpage
+		\tableofcontents 
+		\clearpage	
+	
+	%% The actual thesis
+	\mainmatter
+		\include{mainmatter/introduction}
+		\include{mainmatter/qhe}
+	
+	%% Appendix and other shit
+	\appendix
+		\include{appendix/numerov}
+		
+	\backmatter
+	%% Bibliography
+	\bibliography{references.bib}
+	
+	% Commands to add lists and index
+%	\clearpage
+%	\listoffigures
+%	\clearpage
+%	\listoftables
+	%\clearpage
+%	\printindex
+	
+
+\end{document}

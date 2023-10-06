@@ -1,0 +1,88 @@
+%% Generelt
+\newcommand{\g}{\cdot} % Prikprodukt, gangetegn
+\newcommand{\kraft}[2]{#1_{\text{#2}}} % Pæn subscript
+\newcommand{\e}{\mathcal{E}} % Skrevet E
+\newcommand{\matlab}{\textsc{matlab} } %Pænt MatLab
+\newcommand{\nline}{\nonumber \\ &}
+\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
+%\newcommand{\defeq}{\coloneqq}
+
+%% Matematik
+
+\newcommand{\abs}[1]{\left| #1 \right|} % Numerisk værdi
+\let\underdot=\d % omdøb indbygget kommando \d{} til \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % afledt
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % dbl.afledt
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} %partiel afl.
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} %db.p.afl.
+\newcommand{\R}{\mathbb{R}} % Reelle tal
+\newcommand\ZERO{\makebox(0,0){\text{\huge0}}} % Stort 0 til matricer
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\fd}[2]{\frac{\delta #1}{\delta #2}} %functional deriv.
+
+% Vektorer
+
+\newcommand{\xyz}[3]{\begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}} %3D-vektor
+\newcommand{\xy}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}} %2D-vektor
+\let\vaccent=\v % Omdøb \v{} til \vaccent{}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % Vektor med fed
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} % Vektor med græske bogstaver
+\newcommand{\hatvec}[1]{\hat{\mathbf{#1}}} % Hatvektor
+\newcommand{\ihat}{\boldsymbol{\hat{\textbf{\i}}}} % Enhedsvektor i
+\newcommand{\jhat}{\boldsymbol{\hat{\textbf{\j}}}} % .. j
+\newcommand{\khat}{\mathbf{\hat{k}}}  % .. k
+\newcommand{\xhat}{\mathbf{\hat{x}}} % Enhedsvektor x
+\newcommand{\yhat}{\mathbf{\hat{y}}} % .. y
+\newcommand{\zhat}{\mathbf{\hat{z}}} % .. z
+\newcommand{\grad}[1]{\gv{\nabla} #1} % Gradient
+\let\divsymb=\div % Omdøb \div til \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} % Divergens
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} % Curl
+% Vil man tage div eller curl af græske bogstaver,
+% skal man lade argumentetet være fx \gv{\mu} for µ-vektor
+
+
+%PhD
+\newcommand{\el}{\ensuremath{\text{el}}}
+\newcommand{\qp}{\ensuremath{\text{qp}}}
+\newcommand{\BCS}{\ensuremath{\text{BCS}}}
+\newcommand{\tq}{{\delta{q}}}
+\newcommand{\tk}{{\delta{k}}}
+\newcommand{\gc}{\text{gc}}
+% Thomas stuff
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Res}{Res} \DeclareMathOperator{\hc}{h.c.}
+\DeclareMathOperator{\cc}{c.c.}
+\renewcommand{\Re}{\operatorname{Re}} % can't use declaremathoperator
+\renewcommand{\Im}{\operatorname{Im}} % because they're already defined
+\newcommand{\tvk}{{\delta{\v{k}}}}
+\newcommand{\NSN}{\text{NSN}}
+\newcommand{\DeltaP}{\Delta_{\text{p}}}
+\newcommand{\tDeltaP}{\tilde\Delta_{\text{p}}}
+\newcommand{\vkappa}{{\boldsymbol{\kappa}}}
+
+% Color
+\def\bl{\textcolor{blue}}
+
+% Acronyms
+\setglossarysection{section=section} % For symbols
+\setacronymstyle{long-short}
+\newacronym{QH}{QH}{quantum Hall}
+\newacronym{SC}{SC}{superconductor}
+\newacronym{2DEG}{2DEG}{two-dimensional electron gas}
+\newacronym{SOC}{SOC}{spin-orbit coupling}
+
+% Symbols, chap 1
+\newglossaryentry{e}{
+	name=\ensuremath{e},
+	description={electron charge},
+	type=symbols
+	}
+\newglossaryentry{B0}{
+	name=\ensuremath{B_0},
+	description={applied magnetic field},
+	type=symbols
+	}

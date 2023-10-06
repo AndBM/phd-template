@@ -1,0 +1,1 @@
+A thesis compliant with University of St Andrews guidelines in 2022. Note that the coverpage is a little at odds with the rules, and you might be asked to remove it before uploading the final version.

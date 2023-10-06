@@ -1,0 +1,70 @@
+\documentclass[english,a4paper,twoside,onecolumn,11pt]{memoir}
+	\usepackage[english]{babel}
+	\usepackage[T1]{fontenc}	
+	\usepackage[utf8]{inputenc}
+
+%% Figures
+	\usepackage{graphicx}
+	\usepackage[labelfont=bf,textfont={it},size=small]{caption}
+	\usepackage{pdfpages}
+
+%% Index
+\usepackage{idxlayout}
+%\makeindex
+		
+%% Math
+	\usepackage{mathtools,mathrsfs}
+	\usepackage{amsmath,amssymb}
+	\usepackage{bbold}
+	\usepackage{bm,bbm}
+	\usepackage{siunitx}
+	\usepackage{cancel}
+	\usepackage{braket}
+
+%% Fonts
+	\usepackage{palatino}
+	%\usepackage{mathpazo}
+	\usepackage{csquotes}
+	\usepackage{multirow}
+
+%% Drafts
+	\usepackage{lipsum}
+	\usepackage[final]{fixme}
+	\usepackage{xspace}
+
+%% Pagesetup
+	\usepackage[top=3cm,bottom=3.6cm]{geometry}
+	\usepackage{microtype}
+
+%% Bibliography
+%	\usepackage[isbn = false, url=false, doi=false, eprint=false, backend=biber,sorting=none,maxcitenames=2,style=numeric]{biblatex}
+%	\addbibresource{references.bib}
+\usepackage{cite}
+%\usepackage[square,numbers,sort]{natbib}
+\bibliographystyle{ieeetran}
+
+%% Links and refs
+	\usepackage{url}
+	\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+	\usepackage[capitalize]{cleveref}
+
+%% Layout
+	\usepackage{fancyhdr}
+	\setsecnumdepth{subsection}
+	\setcounter{tocdepth}{2}
+	\chapterstyle{veelo}
+	%\chapterstyle{ell}
+
+%% For quote
+	\epigraphfontsize{\small\itshape}
+	\setlength\epigraphwidth{8cm}
+	\setlength\epigraphrule{0pt}
+	
+%% Glossaries
+	\usepackage[	nonumberlist,
+				nopostdot,
+				acronyms,
+				symbols,
+				toc
+				]{glossaries}
+	\makenoidxglossaries
